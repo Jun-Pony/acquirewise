@@ -4,10 +4,12 @@ import React, { createContext, useContext, useState } from 'react'
 import { translations } from '@/lib/i18n/translations'
 import type { Lang } from '@/types'
 
+type TranslationDict = typeof translations[keyof typeof translations]
+
 interface LangContextType {
   lang: Lang
   setLang: (lang: Lang) => void
-  t: typeof translations['zh']
+  t: TranslationDict
 }
 
 const LangContext = createContext<LangContextType>({
